@@ -1,0 +1,147 @@
+{
+  "entities": {
+    "JournalInteraction": {
+      "title": "JournalInteraction",
+      "description": "Multi-turn AI conversation or reflection dialogue",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "mode": { "type": "string" },
+        "tags": { "type": "array" },
+        "messages": { "type": "array" },
+        "summary": { "type": "string" },
+        "mood": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["id", "userId", "createdAt", "updatedAt"]
+    },
+    "JournalEntry": {
+      "title": "JournalEntry",
+      "description": "User-authored journal entry or transformed thought",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "mood": { "type": "string" },
+        "tags": { "type": "array" },
+        "entryType": { "type": "string" },
+        "sourceVentId": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["id", "userId", "content", "createdAt", "updatedAt"]
+    },
+    "VentSession": {
+      "title": "VentSession",
+      "description": "Saved emotional release and vent session",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "content": { "type": "string" },
+        "wordCount": { "type": "number" },
+        "exploredEmotions": { "type": "array" },
+        "userSelectedEmotions": { "type": "array" },
+        "transformedInto": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["id", "userId", "content", "createdAt"]
+    },
+    "FutureLetter": {
+      "title": "FutureLetter",
+      "description": "Letter written to future self with optional unlock date",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "deliverAt": { "type": "number" },
+        "isRead": { "type": "boolean" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["id", "userId", "content", "createdAt"]
+    },
+    "TinyWin": {
+      "title": "TinyWin",
+      "description": "Small personal accomplishment or moment of emotional courage",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "text": { "type": "string" },
+        "feeling": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["id", "userId", "text", "createdAt"]
+    },
+    "CycleProfile": {
+      "title": "CycleProfile",
+      "description": "Optional, private cycle-aware journaling configuration",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "optedIn": { "type": "boolean" },
+        "genderIdentity": { "type": "string" },
+        "lastPeriodStart": { "type": "string" },
+        "cycleLengthDays": { "type": "number" },
+        "knownPhase": { "type": "string" },
+        "symptoms": { "type": "array" },
+        "notes": { "type": "string" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "optedIn", "updatedAt"]
+    },
+    "PatternInsight": {
+      "title": "PatternInsight",
+      "description": "Noticed recurring theme or emotional observation from journal history",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "observation": { "type": "string" },
+        "theme": { "type": "string" },
+        "sampleCount": { "type": "number" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["id", "userId", "observation", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/interactions/{interactionId}": {
+      "schema": "JournalInteraction",
+      "description": "User's private conversational reflections"
+    },
+    "/users/{userId}/journalEntries/{entryId}": {
+      "schema": "JournalEntry",
+      "description": "User's authored journal entries"
+    },
+    "/users/{userId}/ventSessions/{sessionId}": {
+      "schema": "VentSession",
+      "description": "User's saved vent-out sessions"
+    },
+    "/users/{userId}/futureLetters/{letterId}": {
+      "schema": "FutureLetter",
+      "description": "User's private letters to their future self"
+    },
+    "/users/{userId}/tinyWins/{winId}": {
+      "schema": "TinyWin",
+      "description": "User's small personal accomplishments"
+    },
+    "/users/{userId}/cycleProfile/{profileId}": {
+      "schema": "CycleProfile",
+      "description": "User's optional private cycle-aware profile"
+    },
+    "/users/{userId}/patternInsights/{insightId}": {
+      "schema": "PatternInsight",
+      "description": "User's personal pattern insights"
+    }
+  }
+}

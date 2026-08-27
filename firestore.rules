@@ -1,0 +1,47 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default-deny global safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // User data isolation: only the authenticated owner can access their subcollections
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      match /interactions/{interactionId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      match /journalEntries/{entryId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      match /journals/{journalId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      match /ventSessions/{sessionId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      match /futureLetters/{letterId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      match /tinyWins/{winId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      match /cycleProfile/{profileId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      match /patternInsights/{insightId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}
+

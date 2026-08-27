@@ -1,0 +1,6 @@
+{
+  "name": "AI Journal & Reflection Companion",
+  "description": "User-authenticated personal journaling and cognitive reflection web application powered by Cloud Firestore and server-side AI.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
