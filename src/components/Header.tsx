@@ -3,7 +3,6 @@ import {
   Sparkles,
   LogOut,
   Plus,
-  ShieldCheck,
   Heart,
   PenLine,
   Wind,
@@ -20,7 +19,6 @@ interface HeaderProps {
   onNavigate: (view: AppView) => void;
   onSignOut: () => void;
   onNewSession: () => void;
-  onOpenWalkthrough: () => void;
   onOpenCycleSettings: () => void;
   onToggleVault?: () => void;
   vaultCount?: number;
@@ -32,7 +30,6 @@ export const Header: React.FC<HeaderProps> = ({
   onNavigate,
   onSignOut,
   onNewSession,
-  onOpenWalkthrough,
   onOpenCycleSettings,
   onToggleVault,
   vaultCount,
@@ -164,17 +161,6 @@ export const Header: React.FC<HeaderProps> = ({
               <Heart className="h-4 w-4 text-rose-500" />
             </button>
           )}
-
-          {/* Test Walkthrough & Security Matrix (Icon button as requested) */}
-          <button
-            id="btn-walkthrough"
-            onClick={onOpenWalkthrough}
-            aria-label="View Test Walkthrough & Security Matrix"
-            title="View Test Walkthrough & Security Matrix"
-            className="p-2 text-stone-500 hover:text-stone-900 bg-stone-100 hover:bg-stone-200 rounded-lg transition-colors cursor-pointer flex items-center justify-center border border-stone-200"
-          >
-            <ShieldCheck className="h-4 w-4 text-stone-600" />
-          </button>
 
           {/* Start New / Action */}
           {user && (

@@ -16,11 +16,9 @@ import {
 } from 'lucide-react';
 import { signInWithPopup, auth, googleProvider } from '../firebase';
 
-interface AuthLandingProps {
-  onOpenWalkthrough: () => void;
-}
+interface AuthLandingProps {}
 
-export const AuthLanding: React.FC<AuthLandingProps> = ({ onOpenWalkthrough }) => {
+export const AuthLanding: React.FC<AuthLandingProps> = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -103,14 +101,6 @@ export const AuthLanding: React.FC<AuthLandingProps> = ({ onOpenWalkthrough }) =
                 </svg>
               )}
               <span>{loading ? 'Authenticating...' : 'Sign in with Google'}</span>
-            </button>
-
-            <button
-              onClick={onOpenWalkthrough}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-white border border-stone-300 hover:bg-stone-100 text-stone-700 text-sm font-medium rounded-xl transition-all cursor-pointer"
-            >
-              <span>View Test Matrix & Architecture</span>
-              <ArrowRight className="h-4 w-4 text-stone-400" />
             </button>
           </div>
         </div>

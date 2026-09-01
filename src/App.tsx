@@ -43,7 +43,6 @@ import { VentOutWorkspace } from './components/VentOutWorkspace';
 import { ReflectionWorkspace } from './components/ReflectionWorkspace';
 import { ReflectSuite } from './components/ReflectSuite';
 import { CycleSettingsModal } from './components/CycleSettingsModal';
-import { WalkthroughModal } from './components/WalkthroughModal';
 
 function createFreshInteraction(userId: string): JournalInteraction {
   const id = `session_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
@@ -99,7 +98,6 @@ export default function App() {
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
 
   // Modals
-  const [isWalkthroughOpen, setIsWalkthroughOpen] = useState<boolean>(false);
   const [isCycleModalOpen, setIsCycleModalOpen] = useState<boolean>(false);
 
   // 1. Listen for Firebase Auth state changes
@@ -497,7 +495,6 @@ export default function App() {
         onNavigate={handleNavigate}
         onSignOut={handleSignOut}
         onNewSession={handleStartNewSession}
-        onOpenWalkthrough={() => setIsWalkthroughOpen(true)}
         onOpenCycleSettings={() => setIsCycleModalOpen(true)}
         onToggleVault={() => setIsMobileVaultOpen((prev) => !prev)}
         vaultCount={interactions.length + journalEntries.length + ventSessions.length}
@@ -505,7 +502,7 @@ export default function App() {
 
       {/* Main Container */}
       {!currentUser ? (
-        <AuthLanding onOpenWalkthrough={() => setIsWalkthroughOpen(true)} />
+        <AuthLanding />
       ) : (
         <main className="flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0 w-full relative">
           
@@ -703,12 +700,6 @@ export default function App() {
           onProfileUpdated={(p) => setCycleProfile(p)}
         />
       )}
-
-      {/* Security & Functional Walkthrough Modal */}
-      <WalkthroughModal
-        isOpen={isWalkthroughOpen}
-        onClose={() => setIsWalkthroughOpen(false)}
-      />
 
     </div>
   );
