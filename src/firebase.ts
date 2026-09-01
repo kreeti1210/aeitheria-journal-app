@@ -1,18 +1,20 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, User } from 'firebase/auth';
 import { getFirestore, Firestore } from 'firebase/firestore';
-import localConfig from '../firebase-applet-config.json';
 
-// Support both environment variables and local config file
+// Safely discover local configuration in AI Studio preview without failing when absent on Vercel
+const localConfigs = import.meta.glob('../firebase-applet-config.json', { eager: true, import: 'default' });
+const localConfig = (localConfigs['../firebase-applet-config.json'] as Record<string, any>) || {};
+
 const env = (import.meta as any).env || {};
 const firebaseConfig = {
-  apiKey: env.VITE_FIREBASE_API_KEY || localConfig?.apiKey || '',
-  authDomain: env.VITE_FIREBASE_AUTH_DOMAIN || localConfig?.authDomain || '',
-  projectId: env.VITE_FIREBASE_PROJECT_ID || localConfig?.projectId || '',
-  storageBucket: env.VITE_FIREBASE_STORAGE_BUCKET || localConfig?.storageBucket || '',
-  messagingSenderId: env.VITE_FIREBASE_MESSAGING_SENDER_ID || localConfig?.messagingSenderId || '',
-  appId: env.VITE_FIREBASE_APP_ID || localConfig?.appId || '',
-  firestoreDatabaseId: env.VITE_FIREBASE_FIRESTORE_DATABASE_ID || localConfig?.firestoreDatabaseId || '(default)',
+  apiKey: env.VITE_FIREBASE_API_KEY || localConfig.apiKey || '',
+  authDomain: env.VITE_FIREBASE_AUTH_DOMAIN || localConfig.authDomain || '',
+  projectId: env.VITE_FIREBASE_PROJECT_ID || localConfig.projectId || '',
+  storageBucket: env.VITE_FIREBASE_STORAGE_BUCKET || localConfig.storageBucket || '',
+  messagingSenderId: env.VITE_FIREBASE_MESSAGING_SENDER_ID || localConfig.messagingSenderId || '',
+  appId: env.VITE_FIREBASE_APP_ID || localConfig.appId || '',
+  firestoreDatabaseId: env.VITE_FIREBASE_FIRESTORE_DATABASE_ID || localConfig.firestoreDatabaseId || '(default)',
 };
 
 // Initialize Firebase App singleton
