@@ -17,6 +17,15 @@ const firebaseConfig = {
   firestoreDatabaseId: env.VITE_FIREBASE_FIRESTORE_DATABASE_ID || localConfig.firestoreDatabaseId || '(default)',
 };
 
+// Safe diagnostic logging for debugging unauthorized-domain errors
+if (typeof window !== 'undefined') {
+  console.log('[Firebase Debug] hostname:', window.location.hostname);
+  console.log('[Firebase Debug] origin:', window.location.origin);
+  console.log('[Firebase Debug] projectId:', firebaseConfig.projectId);
+  console.log('[Firebase Debug] authDomain:', firebaseConfig.authDomain);
+  console.log('[Firebase Debug] appId:', firebaseConfig.appId);
+}
+
 // Initialize Firebase App singleton
 const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 
