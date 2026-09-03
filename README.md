@@ -15,7 +15,7 @@
 <br />
 
 <p align="center">
-  <img src="./docs/screenshots/landing.jpg" alt="Aetheria Landing Screen" width="900" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);" />
+  <img src="./docs/screenshots/landing.png" alt="Aetheria Landing Screen" width="900" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);" />
 </p>
 
 </div>
@@ -114,15 +114,18 @@ In everyday life, our internal dialogue is often crowded, overwhelming, and unor
 The central gateway of Aetheria welcomes you with a calming, distraction-free atmosphere.
 
 <p align="center">
-  <img src="./docs/screenshots/dashboard.jpg" alt="Aetheria Dashboard" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
+  <img src="./docs/screenshots/dashboard.png" alt="Aetheria Dashboard" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
 </p>
 
-- **What it is**: A personalized landing space displaying greeting, live item counts across your vault, an inline **Quick Thought capture bar**, and quick navigation cards.
+- **What it is**: The personalized sanctuary home view welcoming the authenticated user (`Welcome, Kreeti.`) with the subtitle *"What do you need right now? Choose a space to write, release, talk, or look back."*
 - **What the user can do**:
-  - Instantly type and save a quick thought without opening a full editor.
-  - Launch one of the 4 core spaces: **Write**, **Vent Out**, **Talk Out Loud**, or **Reflect & Grow**.
-  - Monitor active **Cycle Rhythm** phase badges (if opted in).
-  - Open the private History Vault sidebar.
+  - **4 Dedicated Reflection Spaces**: Direct access cards for:
+    - **Write**: Capture thoughts, structured reflections, daily moments, and clear ideas in a calm, private editor.
+    - **Vent Out** (`VOICE & TEXT` badge): Let everything out without filtering. Speak or type freely, then decide whether to let it vanish or explore the feelings underneath.
+    - **Talk Out Loud** (`"DON'T FIX IT" MODES` badge): Converse with a thoughtful companion who can just listen, help you untangle tangled emotions, or brainstorm next steps.
+    - **Reflect & Grow**: Notice recurring patterns, compare "Then Me vs Now Me", read letters to your future self, and celebrate tiny courageous wins.
+  - **Header Controls**: Quick navigation tabs (`Home`, `Write`, `Vent`, `Talk`, `Reflect`), cycle awareness shortcut (heart icon), `+ New Thought` quick capture button, and user account status.
+  - **Integrated History Drawer**: Instant access to your saved entries (`Vault 1`), real-time search, and category filter tabs (`All`, `Journal`, `Talks`, `Vents`).
 - **Why it's useful**: Eliminates blank-page anxiety with immediate entry points tailored to your current emotional state.
 
 ---
@@ -132,37 +135,44 @@ The central gateway of Aetheria welcomes you with a calming, distraction-free at
 A distraction-free writing environment built for deep journaling and intentional thought capture.
 
 <p align="center">
-  <img src="./docs/screenshots/journal.jpg" alt="Classic Journal Editor" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
+  <img src="./docs/screenshots/journal.png" alt="Classic Journal Editor" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
 </p>
 
-- **What it is**: An autosaving rich editor supporting titles, markdown formatting, emotional state tags, and custom taxonomy.
+- **What it is**: An autosaving rich editor supporting titles, real-time word counting, emotional state tags, and direct AI reflection bridging.
 - **What the user can do**:
-  - Write journal entries with automatic debounced saving to Cloud Firestore.
-  - Select emotional mood states: *Grounded, Reflective, Joyful, Peaceful, Anxious, Overwhelmed, Drained, or Hopeful*.
+  - Write journal reflections with automatic debounced saving to Cloud Firestore (`Saved` badge, `Autosaves on edit`).
+  - Select emotional mood states via the interactive mood dropdown (e.g. `Calm`, `Reflective`, `Grounded`, `Peaceful`, `Joyful`, `Anxious`, `Overwhelmed`, `Drained`, `Hopeful`).
   - Add custom `#tags` with automatic duplicate detection and one-click removal.
-  - View real-time word count and live save-status indicators (`Saved to Vault`).
-  - **"Reflect with AI" Bridge**: One-click transition that feeds the journal entry into the conversational AI workspace for deeper exploration.
-  - **Source Vent Linking**: If an entry originated from a transformed vent, a discrete badge links back to the original source text.
-- **Why it's useful**: Keeps your private written reflections organized, tagged, and seamlessly connected to AI introspection tools.
+  - Track live word counts (`5 words`) and update timestamps (`Last updated 03:20 PM`).
+  - **"Reflect with AI" Bridge**: One-click header transition that feeds the written reflection directly into the conversational AI companion for deeper inquiry.
+  - **Left-Hand Vault Navigation**: Seamlessly switch between existing journal entries, talks, and vents in the left drawer without losing your flow.
+- **Why it's useful**: Combines classic mindful writing with instant cloud persistence and intelligent reflective extensions.
 
 ---
 
 ### 🔥 Raw Expression & Catharsis (`Vent Out`)
 
-A judgment-free space designed for unfiltered venting and emotional processing.
+A judgment-free space designed for unfiltered venting and emotional processing with two distinct stages: active expression and post-vent decision gates.
 
 <p align="center">
-  <img src="./docs/screenshots/vent-out.jpg" alt="Vent Out Workspace" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
+  <img src="./docs/screenshots/vent-out.png" alt="Vent Out Active Speech & Text Canvas" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
 </p>
 
-- **What it is**: An unconstrained text and speech canvas with 4 deliberate post-vent decision paths.
-- **What the user can do**:
-  - **Type or Speak**: Capture high-velocity thoughts via keyboard or browser-native **Voice Out** speech recognition.
-  - **The 4 Decision Gates**:
-    1. 💨 **"Let it Disappear"**: Complete cathartic release. Instantly purges the text from memory and hard-deletes any temporary draft from the database.
-    2. 🔒 **"Keep it Privately"**: Saves the raw vent into your Private Vault under a secure lock badge.
-    3. 💡 **"Help Me Understand"**: Triggers Gemini AI to extract 2–4 subtle underlying emotion cards (*e.g., "Tension between wanting to excel and feeling unseen"*).
-    4. 🔄 **"Constructive Transformation"**: Synthesizes the raw vent into one of 5 constructive outputs:
+<p align="center">
+  <img src="./docs/screenshots/aeth2.png" alt="Vent Out 4-Way Decision Gateway" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
+</p>
+
+- **What it is**: An unconstrained text and speech canvas backed by a deliberate 4-way post-vent decision gateway.
+- **Active Release Stage (`vent-out.png`)**:
+  - **Voice & Text Capture**: Capture raw feelings with live browser-native speech-to-text transcription (`Voice Out active` with real-time pulsing indicator) or direct keyboard typing.
+  - **Real-Time Word Count & Controls**: Live word tracking (`39 words`), with controls to `Pause Voice`, `Clear`, or complete via `I'm Done ->`.
+  - **Non-Judgmental Guarantee**: *"Speak or write freely. Nothing is judged or analyzed until you ask."*
+- **The 4 Decision Pathways (`aeth2.png`)**:
+  - Once the user clicks *"I'm Done"*, they retain complete sovereignty over their thoughts:
+    1. 💨 **"Let it disappear"**: Release it into the air. Wiped from memory immediately with zero storage.
+    2. 🔒 **"Keep it privately"**: Save the raw text securely in your private journal vault without modifying it (stored with a private lock badge).
+    3. 💡 **"Help me understand what I'm feeling"**: Triggers Gemini AI to gently uncover 2–4 underlying emotional themes beneath the frustration.
+    4. 🔄 **"Turn this into something constructive"**: Synthesizes the raw vent into one of 5 constructive outputs:
        - **Gentle Letter to Myself**
        - **Unsent Letter (Cathartic Boundary Setting)**
        - **Core Problem Statement (What's in control vs. out of control)**
@@ -177,7 +187,7 @@ A judgment-free space designed for unfiltered venting and emotional processing.
 An AI-powered conversational reflection companion designed to think through problems with you.
 
 <p align="center">
-  <img src="./docs/screenshots/talk-out-loud.jpg" alt="Talk Out Loud AI Chat" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
+  <img src="./docs/screenshots/talk-out-loud.png" alt="Talk Out Loud AI Chat" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
 </p>
 
 - **What it is**: A multi-turn conversational journal powered by Gemini 3.7 Flash with **7 distinct reflection modes**.
@@ -203,7 +213,7 @@ An AI-powered conversational reflection companion designed to think through prob
 Longitudinal analytics and personal growth tools that help you see your progress over time.
 
 <p align="center">
-  <img src="./docs/screenshots/reflect-grow.jpg" alt="Reflect and Grow Suite" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
+  <img src="./docs/screenshots/reflect-grow.png" alt="Reflect and Grow Suite" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
 </p>
 
 - **What it is**: A retrospective suite with 5 specialized reflection tools:
@@ -218,35 +228,40 @@ Longitudinal analytics and personal growth tools that help you see your progress
 
 ### 🌸 Non-Clinical Cycle-Aware Rhythm (`Cycle Awareness`)
 
-An optional, private rhythm feature designed for individuals to track how hormonal cycles interact with mood and energy.
+An optional, private rhythm preference feature accessed via the heart icon in the navigation bar to track how hormonal cycles interact with mood and energy.
 
 <p align="center">
-  <img src="./docs/screenshots/cycle-awareness.jpg" alt="Cycle Awareness Settings" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
+  <img src="./docs/screenshots/aethcyc.png" alt="Cycle Awareness Settings Modal" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
 </p>
 
 - **What it is**: An optional, non-clinical module that calculates cycle phases and provides gentle contextual framing during reflection.
-- **Key Features**:
-  - **4 Computed Phases**: Dynamically computes *Menstrual*, *Follicular*, *Ovulatory*, and *Luteal* phases based on cycle length and last period start date.
-  - **Symptom Tendencies**: Select common personal tendencies (*e.g., Creative surge, Brain fog, Emotional sensitivity, Boundary fatigue*).
-  - **Context-Aware Dialogue Injection**: When opted in, Gemini receives non-clinical context to gently validate energy changes (*e.g., "It's natural to experience lower physical stamina during your luteal phase—let's adjust today's expectations"*).
-  - **Zero-Trace Privacy & Data Purge**: Completely optional. You can toggle it off or permanently delete all cycle data with one click.
+- **Key Features shown in `aethcyc.png`**:
+  - **Enable Optional Cycle Awareness Toggle**: Activates gentle, non-clinical reflections when energy or mood shifts align with cycle phases.
+  - **Inclusive & Non-Prescriptive Identity**: Flexible options (*"Prefer not to say"*, etc.) without assumptions.
+  - **Cycle Parameters**: Configurable `Last Period Start Date` picker and `Typical Cycle Length (Days)` (default `28`).
+  - **Common Tendencies & Sensations**: Selectable chips for *Low energy*, *Emotional sensitivity*, *Creative surge*, *Brain fog*, *Restlessness*, *Deep focus*, *Need for quiet solitude*, and *Physical fatigue*.
+  - **Privacy & Safety Guarantee**: *"Cycle information is strictly stored under your private account. It is never used to diagnose medical conditions or dismiss real feelings."*
+  - **Permanent Data Purge**: Dedicated red `Delete Cycle Data` action to permanently purge all cycle records from Firestore with a single click.
 - **Medical Disclaimer**: *This feature provides non-clinical self-reflection context only. It is not intended for medical diagnosis, contraception, or fertility tracking.*
 
 ---
 
 ### 🏛️ Private History Vault & Search (`The Vault`)
 
-A unified drawer for viewing, filtering, searching, and managing all your historical records.
+A unified, searchable history drawer organizing all your personal reflections, secret vents, talks, and letters.
 
 <p align="center">
-  <img src="./docs/screenshots/vault.jpg" alt="Private History Vault" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
+  <img src="./docs/screenshots/vault.png" alt="Private History Vault Drawer" width="850" style="border-radius: 10px; border: 1px solid #e7e5e4;" />
 </p>
 
 - **What it is**: A slide-over sidebar aggregating journal entries, private vents, AI dialogues, future letters, and tiny wins.
-- **Key Capabilities**:
-  - **Instant Search**: Real-time filtering by keyword across titles, entry bodies, subtexts, and tag taxonomies.
-  - **Categorized Tabs**: Quick filters for *All Items*, *Journals*, *Private Vents (Lock Badge)*, *AI Dialogues*, *Future Letters*, and *Tiny Wins*.
-  - **JSON Data Backup Export**: Download your entire personal database history as a structured JSON file with one click.
+- **Key Capabilities shown in `vault.png`**:
+  - **Instant Search & Counters**: Live search across titles and text snippets with active item counter (`Vault 2`).
+  - **Taxonomy Filter Tabs**: Quick filter buttons for `All (2)`, `Journal (1)`, `Talks (0)`, and `Vents (1)`.
+  - **Multi-Type Card Previews**:
+    - **Journal Entry**: `Daily Reflection` with snippet *"Hey it's 3 September 2026!!!!"*, timestamp (`Today, 03:20 PM`), and green `Calm` mood badge.
+    - **Secret Vent Entry**: Marked with a lock icon, `Secret Vent Session`, preview snippet *"i dont know what is happening."*, timestamp (`Today, 04:12 PM`), and crimson `6 words • Private` badge.
+  - **Data Backup & Actions**: Download complete JSON archive via the header export button, or click `+ New` to start fresh.
   - **Permanent Deletion**: Modal-confirmed permanent document deletions across Firestore collections.
 
 ---
@@ -351,14 +366,15 @@ Every prompt includes strict system boundary instructions:
 
 | Space | Screenshot Preview |
 | :--- | :--- |
-| **Landing & Auth** | ![Landing](./docs/screenshots/landing.jpg) |
-| **Sanctuary Dashboard** | ![Dashboard](./docs/screenshots/dashboard.jpg) |
-| **Classic Journaling** | ![Journal](./docs/screenshots/journal.jpg) |
-| **Vent Out & Gates** | ![Vent Out](./docs/screenshots/vent-out.jpg) |
-| **Talk Out Loud AI** | ![Talk Out Loud](./docs/screenshots/talk-out-loud.jpg) |
-| **Reflect & Grow** | ![Reflect and Grow](./docs/screenshots/reflect-grow.jpg) |
-| **Cycle Awareness** | ![Cycle Awareness](./docs/screenshots/cycle-awareness.jpg) |
-| **Private Vault Drawer** | ![Vault](./docs/screenshots/vault.jpg) |
+| **Landing & Auth** | ![Landing](./docs/screenshots/landing.png) |
+| **Sanctuary Dashboard** | ![Dashboard](./docs/screenshots/dashboard.png) |
+| **Classic Journaling** | ![Journal](./docs/screenshots/journal.png) |
+| **Vent Out (Active Speech & Text)** | ![Vent Out Active](./docs/screenshots/vent-out.png) |
+| **Vent Out (4-Way Decision Pathways)** | ![Vent Out Pathways](./docs/screenshots/aeth2.png) |
+| **Talk Out Loud AI** | ![Talk Out Loud](./docs/screenshots/talk-out-loud.png) |
+| **Reflect & Grow** | ![Reflect and Grow](./docs/screenshots/reflect-grow.png) |
+| **Cycle-Aware Support Modal** | ![Cycle Awareness](./docs/screenshots/aethcyc.png) |
+| **Private Vault Drawer** | ![Vault](./docs/screenshots/vault.png) |
 
 ---
 
